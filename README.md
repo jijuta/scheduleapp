@@ -4,10 +4,8 @@
     <li>node.js 8+ 이상이 설치되어 있어야 합니다. </li>
     <li>mysql local 또는 remote 에 연결 가능해야 합니다. </li>
     <li>config/database.js 설정 파일에 mysql 접속 정보를 등록 해 주세요</li>
+    <li>#mysql 관련 설정 tablename 은 각 환경에 맞게 변경 바랍니다.</li>
 </ul>
-
-#mysql 관련 설정 tablename 은 각 환경에 맞게 변경 바랍니다.
-
     app.get('/smbrid', function(req, res){
       connection.query('SELECT * from tablename', function(err, rows) {
         if(err) throw err;
