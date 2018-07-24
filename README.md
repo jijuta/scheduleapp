@@ -1,6 +1,7 @@
 ## INSTALL
-git clone https://github.com/jijuta/scheduleapp.git
+node.js 8+ 이상이 설치되어 있어야 합니다.
 <ul>
+    <li>git clone https://github.com/jijuta/scheduleapp.git </li>
     <li>npm install </li>
     <li>npm start or node index.js</li>
     <li>http://localhost:3000</li>
