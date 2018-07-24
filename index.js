@@ -20,6 +20,10 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
+app.get("/cal", function(req, res) {
+  res.sendFile(path.join(__dirname, "cal.html"));
+});
+
 app.get('/smbrid', function(req, res){
 
   connection.query('SELECT * from rb_s_mbrid', function(err, rows) {
