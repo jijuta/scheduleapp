@@ -9,7 +9,7 @@
 ## 풀캘린더
 풀캘린더 화면과 데이터 파싱을 사용하는 페이지들은 모두 한 스크립트와 jsp를 사용하였습니다.
 <ul>
-    <li>jsp 페이지를 인클루딩 해오는 방식으로 하나의 풀캘린더를 구현 후 인클루딩하여 여러 페이지에서 사용하였습니다</li>
+    <li>html 페이지를 인클루딩 해오는 방식으로 하나의 풀캘린더를 구현 후 인클루딩하여 여러 페이지에서 사용하였습니다</li>
     <li>main.js 파일에 풀캘린더 div에 데이터를 파싱해주는 메서드를 정의하여 사용하였습니다.</li>
 </ul>
 
@@ -20,44 +20,6 @@
     <li>대댓글에는 답글을 달 수 없게 하였다.</li>
     <li>삭제와 수정의 경우에는 글쓴이와 로그인한 사용자의 정보가 일치할 경우에만 수정 삭제 버튼이 보이고 컨트롤러에서 사용자와 글쓴이의 일치관계를 한번 더 재확인한다.</li>
 </ul>
-
-    // 세션에 저장된 사용자의 pk
-    int sessionMember = Integer.parseInt(session.getAttribute("member").toString());
-    // 파라미터로 넘어온 글쓴이의 pk
-    int memberNo = Integer.parseInt(requestParam.get("memberNo").toString());
-    // 사용자와 글쓴이의 pk가 일치하지 않을경우
-    if (sessionMember != memberNo) throw new NullPointerException("잘못된 접근입니다.");
-
-
-    /*
-    * 댓글 조회 쿼리문
-    * GROUP_NO = 댓글의 순서이다 GROUP_NO가 같은 수일 경우 하나의 댓글과 하나 이상의 대댓글이다.
-    * DEPTH = 0이면 댓글 1이면 대댓글이다.
-    */
-    <select id="replyList" parameterType="int" resultType="hashMap">
-	  	select SEQ, m.NAME, SAMPLE_SEQ, COMMENT, CRE_DATE, DEPTH, PARENT_REPLYS_NO, GROUP_NO, MEMBER_NO
-	  	from REPLYS as r
-	  	left join MEMBER as m
-	  	on r.MEMBER_NO = m.NO
-	  	where SAMPLE_SEQ = #{seq, jdbcType=INTEGER}
-	  	and DELETE_AT = 'N'
-	  	order by GROUP_NO, DEPTH
-	</select>
-
-    /*
-    * 댓글일 경우와 대댓글일 경우 댓글 등록시 등록해야 하는 값이 다르므로 depth의 값에따라 다른 쿼리문을 처리한다.
-    */
-    <insert id="addReply" parameterType="hashMap">
-		insert into REPLYS(MEMBER_NO, SAMPLE_SEQ, COMMENT, CRE_DATE, DEPTH, PARENT_REPLYS_NO, GROUP_NO, DELETE_AT)
-		<choose>
-			<when test="depth == 0">
-				values (#{memberNo}, #{sample_seq}, #{comment}, now(), #{depth}, null, (select ifnull(max(r.GROUP_NO),0) +1 from REPLYS as r), 'N')
-			</when>
-			<otherwise>
-				values (#{memberNo}, #{sample_seq}, #{comment}, now(), #{depth}, #{parentNo}, #{groupNo}, 'N')
-			</otherwise>
-		</choose>
-	</insert>
 
 ## 회원가입
 회원가입시 해야하는 기본적인 벨리데이션 체크를 하였습니다.
