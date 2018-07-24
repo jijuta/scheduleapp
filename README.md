@@ -7,15 +7,14 @@ git clone https://github.com/jijuta/scheduleapp.git
 </ul>
 
 ## WIKI
-개요 및 설치 문서
 <ul>
-    <li>개요 https://github.com/jijuta/scheduleapp/wiki</li>
-    <li>설치문서  https://github.com/jijuta/scheduleapp/wiki</li>
-    <li>설명  https://github.com/jijuta/scheduleapp/wiki/doc</li>
+    <li>TODO LIST https://github.com/jijuta/scheduleapp/wiki</li>
+    <li>INSTALL  https://github.com/jijuta/scheduleapp/wiki/install</li>
+    <li>DOCUMENT  https://github.com/jijuta/scheduleapp/wiki/doc</li>
 </ul>
 
 
-## 오픈소스 사용
+## OPEN SOURCE LIST
 <ul>
     <li>node.js 8+</li>
     <li>express 4.14.0</li>
@@ -23,11 +22,11 @@ git clone https://github.com/jijuta/scheduleapp.git
     <li>tui-calendar http://ui.toast.com/tui-calendar</li>  
 </ul>
 
-## tui-calendar npm
+## tui-calendar npm install
     $ npm install --save tui-calendar # Latest version
     $ npm install --save tui-calendar@<version> # Specific version
     
-## tui-calendar cdn
+## tui-calendar cdn use
     <script src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
     <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
     <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
