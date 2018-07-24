@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>인하뿌리 스캐줄 IHROOT schedule calendar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+    <link rel="stylesheet" type="text/css" href="./dist/tui-calendar.css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="./css/icons.css"></link>
+	<link rel="icon" href="./favicon.ico">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#"><img src="./images/img-bi.png" srcset="./images/img-bi@2x.png 2x,./images/img-bi@3x.png 3x"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">전체시간표</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link disabled" href="#">나의시간표</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link disabled" href="#">공지사항</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link disabled" href="#">자료실</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link disabled" href="#">사진첩</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link disabled" href="#">자유게시판</a>
+          </li>
+
+        </ul>
+		<span class="left-memu navbar-text">
+		  <a  href="#">로그인</a> <a  href="#">회원가입</a> 
+		</span>
+      </div>
+    </nav>
+	
+    <div id="lnb">
+        <div class="lnb-new-schedule">
+            <button id="btn-new-schedule" type="button" class="btn btn-default btn-block lnb-new-schedule-btn" data-toggle="modal">일정생성</button>
+        </div>
+        <div id="lnb-calendars" class="lnb-calendars">
+            <div>
+                <div class="lnb-calendars-item">
+                    <label>
+                        <input class="tui-full-calendar-checkbox-square" type="checkbox" value="all" checked>
+                        <span></span>
+                        <strong>전체보기</strong>
+                    </label>
+                </div>
+            </div>
+            <div id="calendarList" class="lnb-calendars-d1"></div>
+        </div>
+        <div class="lnb-footer">
+            © IHROOT Corp.
+        </div>
+    </div>
+    <div id="right">
+        <div id="menu">
+            <span class="dropdown">
+                <button id="dropdownMenu-calendarType" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                    <i id="calendarTypeIcon" class="calendar-icon ic_view_month" style="margin-right: 4px;"></i>
+                    <span id="calendarTypeName">Dropdown</span>&nbsp;
+                    <i class="calendar-icon tui-full-calendar-dropdown-arrow"></i>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu-calendarType">
+                    <li role="presentation">
+                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-daily">
+                            <i class="calendar-icon ic_view_day"></i>Daily
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-weekly">
+                            <i class="calendar-icon ic_view_week"></i>Weekly
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-monthly">
+                            <i class="calendar-icon ic_view_month"></i>Month
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-weeks2">
+                            <i class="calendar-icon ic_view_week"></i>2 weeks
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-weeks3">
+                            <i class="calendar-icon ic_view_week"></i>3 weeks
+                        </a>
+                    </li>
+                    <li role="presentation" class="dropdown-divider"></li>
+                    <li role="presentation">
+                        <a role="menuitem" data-action="toggle-workweek">
+                            <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-workweek" checked>
+                            <span class="checkbox-title"></span>Show weekends
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" data-action="toggle-start-day-1">
+                            <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-start-day-1">
+                            <span class="checkbox-title"></span>Start Week on Monday
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" data-action="toggle-narrow-weekend">
+                            <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-narrow-weekend">
+                            <span class="checkbox-title"></span>Narrower than weekdays
+                        </a>
+                    </li>
+                </ul>
+            </span>
+            <span id="menu-navi">
+                <button type="button" class="btn btn-default btn-sm move-today" data-action="move-today">Today</button>
+                <button type="button" class="btn btn-default btn-sm move-day" data-action="move-prev">
+                    <i class="calendar-icon ic-arrow-line-left" data-action="move-prev"></i>
+                </button>
+                <button type="button" class="btn btn-default btn-sm move-day" data-action="move-next">
+                    <i class="calendar-icon ic-arrow-line-right" data-action="move-next"></i>
+                </button>
+            </span>
+            <span id="renderRange" class="render-range"></span>
+        </div>
+        <div id="calendar"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.min.js"></script>
+    <script type="text/javascript" src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+    <script type="text/javascript" src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.13/chance.min.js"></script>
+    <script src="./dist/tui-calendar.js"></script>
+    <script src="./js/data/calendars.js"></script>
+    <script src="./js/data/schedules.js"></script>
+    <script src="./js/theme/dooray.js"></script>
+    <script src="./js/default.js"></script>
+</body>
+</html>
